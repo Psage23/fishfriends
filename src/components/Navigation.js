@@ -4,13 +4,11 @@ import {Link} from 'react-router-dom';
 const Navigation = () => {
 return (
     <div>
-        <div className="App">
+        <div className="navBar">
             <h1>FishFriends</h1>
-            <div>
-            <Link to="/signup">Sign Up</Link>
-            </div>
-            <div>
-            <Link to="/login">Login</Link>
+            <div className="link">
+                <Link className="link1" to="/signup">Sign Up</Link>
+                <Link className="link2"to="/login">Login</Link>
             </div>
         </div>
     </div>

@@ -1,30 +1,22 @@
 import React from 'react';
 import './App.css';
-import Login from './components';
-import Signup from './components';
+import Login from './components/Login';
+import Signup from './components/Signup';
 import { Route } from 'react-router-dom';
+import Naviagation from './components/Navigation'
 
 function App() {
   return (
-    <div className="App">
-      <header className="navBar">
+    <div>
+      <div className="App">
+      <Naviagation/>
+      </div>
+      <div className="Body">
+      <Route path="/Signup" component={Signup}/>
+      <Route path="/Login" component={Login}/>
+      </div>
+      <footer className="navBottom">
         <h2>FishFriends</h2>
-        <nav>
-          <Route path="/Signup" component={Signup}/>
-          <Route path="/Login" component={Login}/>
-        </nav>
-      </header>
-      <button>Login</button>
-      <button>Sign Up</button>
-
-      <footer>
-      <nav className="navBottom">
-        <h2>FishFriends</h2>
-          <nav className="nav">
-              <a href="#">Sign Up</a>
-              <a href="#">LogIn</a>
-            </nav>
-              </nav>
             <span>
                 {/* social media icons here */}
                 <p>2019 FishFriends</p>

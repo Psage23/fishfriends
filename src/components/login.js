@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import { withFormik, Form, Field } from "formik";
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import { withFormik, Form } from "formik";
+import { CardBody, Card } from 'reactstrap';
 import * as Yup from 'yup';
 import axios from 'axios';
+import AddLogForm from './Logform'
 
 
 const LoginForm = ({props, values, errors, touched, status}) => {
     const [users,setUsers] = useState([]);
-    const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
 
     useEffect( () => {
         status && setUsers(users => [...users, status]);
@@ -16,24 +15,21 @@ const LoginForm = ({props, values, errors, touched, status}) => {
 
     return (
         <div className = "login">
-            <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Login</Button>
-            <Collapse isOpen={isOpen}>
             <Card>
                 <CardBody>
                 <Form className="login-form">
                     <label>Username: 
-                    <Field type="text" name="username" placeholder="username"/>
+                    <input type="text" name="username" placeholder="username"/>
                     </label>
                     {touched.name && errors.name && <p className="errors">{errors.name}</p>}
                     <label>Password: 
-                    <Field type="password" name="password" placeholder="password"/>
+                    <input type="password" name="password" placeholder="password"/>
                     </label>
                     {touched.name && errors.name && <p className="errors">{errors.name}</p>}
                     <button type="submit">Submit</button>
                 </Form>
                 </CardBody>
             </Card>
-            </Collapse>
             {users.map(user => (
                 <div key={user.id}>
                     <p>Username: {user.username}</p>
