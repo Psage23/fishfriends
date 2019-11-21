@@ -6,7 +6,7 @@ const AddLogForm = () => {
 
 return (
     <div className="log-form">
-        <img src='/fishpic.jpg' alt='fish picture' />
+        <p src='/fishpic.jpg' alt='fish picture' />
         <form className="log">
                 <label>Bait: </label>	
                     <select className="dropdown" value="" onChange="">
