@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Login from './components/Login';
+import LoginForm from './components/Login';
 import Signup from './components/Signup';
 import { Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
@@ -16,7 +16,7 @@ function App() {
       <div className="Body">
         <Home />
       <Route path="/Signup" component={Signup}/>
-      <Route path="/Login" component={Login}/>
+      <Route path="/Login" component={LoginForm}/>
       </div>
       <footer className="navBottom">
         <h2>FishFriends</h2>
