@@ -1,12 +1,8 @@
 import React from 'react';
+import Home from './Home';
 
-// const AddLogForm = ({props, values, errors, touched, status}) => {
-//     const [logs, setLogs] = useState([]);
-
-//     useEffect(() => {
-//         status && setLogs(logs => [...logs, status])
-//     }, [status] )
- const AddLogForm = () => {
+const AddLogForm = () => {
+        
 return (
     <div className="log-form">
         <h2>Add New Log</h2>
@@ -29,14 +25,8 @@ return (
                 <label># of Fish: </label>	
                 <input text='text' name='fishCount' placeholder='20'/>	
                 <button>Submit</button>	                
-            </form>	
-            {/* {logs.map(log => (
-                <div key={log.id}>
-                    <p>
-                        {log.species}
-                    </p>
-                </div>
-            ))}             */}
+            </form>  
+            <Home/>
         </div>	       
     )
 }
