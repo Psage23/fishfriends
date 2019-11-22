@@ -171,3 +171,8 @@ footer span {
   text-align: center;
   padding-top: 2%;
 }
+
+.App video {
+  width: 100%;
+  height: auto;
+}
