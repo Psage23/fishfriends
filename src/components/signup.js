@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { withFormik, Form } from "formik";
-import { CardBody, Card } from 'reactstrap';
+import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-
+import AddLogForm from './Logform';
 
 
 const SignUp = ({props, values, errors, touched, status}) => {
@@ -16,30 +15,25 @@ const SignUp = ({props, values, errors, touched, status}) => {
     return (
         <div className = "signUp">
             <h2>Sign Up</h2>
-            <Card>
-                <CardBody>
                 <Form className="sign-up">
                     <label>Full Name: 
-                    <input className= "input1" type="text" name="name" placeholder="Full Name"/>
+                    <Field className= "input1" type="text" name="name" placeholder="Full Name"/>
                     </label>
                     {touched.name && errors.name && <p className="errors">{errors.name}</p>}
                     <label>Email: 
-                    <input className= "input2" type="email" name="email" placeholder="Email"/>
+                    <Field className= "input2" type="email" name="email" placeholder="Email"/>
                     </label>
                     {touched.email && errors.email && <p classsName="errors">{errors.email}</p>}
                     <label>Password: 
-                    <input className= "input3" type="password" name="password" placeholder="Password"/>
+                    <Field className= "input3" type="password" name="password" placeholder="Password"/>
                     </label>
                     {touched.password && errors.password && <p className="errors">{errors.password}</p>}
-                    <button type="submit">Submit</button>
+                    <button>Submit</button>
                 </Form>
-                </CardBody>
-            </Card>    
             {newUsers.map(newUser => (
-                <div key={newUser.id}>
-                    <p>Full Name: {newUser.name}</p>
-                    <p>Email: {newUser.email}</p>
-                    <p>Password: {newUser.password}</p>
+                <div className="returnlog" key={newUser.id}>
+                    <h1>Welcome {newUser.name}</h1>
+                    <AddLogForm />
                 </div>    
             ))}
         </div>

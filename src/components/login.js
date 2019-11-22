@@ -1,40 +1,38 @@
 import React, {useState, useEffect} from 'react';
-import { withFormik, Form } from "formik";
-import { CardBody, Card } from 'reactstrap';
+import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
+import UserCard from './UserCard';
 
 
-const LoginForm = ({props, values, errors, touched, status}) => {
-    const [users,setUsers] = useState([]);
 
+const LoginForm = ({errors, touched, status}) => {
+    const [returnUsers, setReturnUsers] = useState([]);
+    
     useEffect( () => {
-        status && setUsers(users => [...users, status]);
+        status && setReturnUsers(returnUsers => [...returnUsers, status]);
     }, [status])
 
     return (
         <div className = "login">
             <h2>Welcome Back!</h2>
-            <Card>
-                <CardBody>
                 <Form className="login-form">
                     <label>Username: 
-                    <input className="input4"type="text" name="username" placeholder="Username"/>
+                    <Field className= "input4" type="username" name="username" placeholder="Username"/>
                     </label>
-                    {touched.name && errors.name && <p className="errors">{errors.name}</p>}
+                    {touched.username && errors.username && <p className="errors">{errors.username}</p>}
                     <label>Password: 
-                    <input className="input5"type="password" name="password" placeholder="Password"/>
+                    <Field className="input5" type="password" name="password" placeholder="Password"/>
                     </label>
                     {touched.password && errors.password && <p className="errors">{errors.password}</p>}
-                    <button type="submit">Submit</button>
+                    <button type="button">Submit</button>
                 </Form>
-                </CardBody>
-            </Card>
-            {users.map(user => (
-                <div key={user.id}>
-                    <p>Username: {user.username}</p>
-                    <p>Password: {user.password}</p>
+            {returnUsers.map(returnUser => (
+                <div key={returnUser.id}>
+                    {/* <p>Username: {returnUser.username}</p>
+                    <p>Password: {returnUser.password}</p> */}
+                    <UserCard />
                 </div>
             ))}
         </div>
@@ -63,4 +61,5 @@ const FormikLoginForm = withFormik({
         .catch(error => console.log(error.responese));
     }
 })(LoginForm);
+
 export default FormikLoginForm; 

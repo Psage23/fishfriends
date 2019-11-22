@@ -7,8 +7,8 @@ return (
         <div className="navBar">
             <h1>FishFriends</h1>
             <div className="link">
-                <Link className="link1" to="/signup">Sign Up</Link>
-                <Link className="link2"to="/login">Login</Link>
+                <Link className="link1" to="/Signup">Sign Up</Link>
+                <Link className="link2"to="/Login">Login</Link>
             </div>
         </div>
     </div>
