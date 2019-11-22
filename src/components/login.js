@@ -3,7 +3,7 @@ import { withFormik, Form } from "formik";
 import { CardBody, Card } from 'reactstrap';
 import * as Yup from 'yup';
 import axios from 'axios';
-import AddLogForm from './Logform'
+
 
 
 const LoginForm = ({props, values, errors, touched, status}) => {
@@ -15,17 +15,18 @@ const LoginForm = ({props, values, errors, touched, status}) => {
 
     return (
         <div className = "login">
+            <h2>Welcome Back!</h2>
             <Card>
                 <CardBody>
                 <Form className="login-form">
                     <label>Username: 
-                    <input type="text" name="username" placeholder="username"/>
+                    <input className="input4"type="text" name="username" placeholder="Username"/>
                     </label>
                     {touched.name && errors.name && <p className="errors">{errors.name}</p>}
                     <label>Password: 
-                    <input type="password" name="password" placeholder="password"/>
+                    <input className="input5"type="password" name="password" placeholder="Password"/>
                     </label>
-                    {touched.name && errors.name && <p className="errors">{errors.name}</p>}
+                    {touched.password && errors.password && <p className="errors">{errors.password}</p>}
                     <button type="submit">Submit</button>
                 </Form>
                 </CardBody>
@@ -33,7 +34,7 @@ const LoginForm = ({props, values, errors, touched, status}) => {
             {users.map(user => (
                 <div key={user.id}>
                     <p>Username: {user.username}</p>
-                    <p>Password: {user.passoword}</p>
+                    <p>Password: {user.password}</p>
                 </div>
             ))}
         </div>
@@ -49,7 +50,7 @@ const FormikLoginForm = withFormik({
     },
 
     validationSchema: Yup.object().shape({
-        name: Yup.string().required(),
+        username: Yup.string().required(),
         password: Yup.string().min(8).max(16).required()
     }),
 

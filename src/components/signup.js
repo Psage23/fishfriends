@@ -15,19 +15,20 @@ const SignUp = ({props, values, errors, touched, status}) => {
 
     return (
         <div className = "signUp">
+            <h2>Sign Up</h2>
             <Card>
                 <CardBody>
                 <Form className="sign-up">
                     <label>Full Name: 
-                    <input type="text" name="name" placeholder="name"/>
+                    <input className= "input1" type="text" name="name" placeholder="Full Name"/>
                     </label>
                     {touched.name && errors.name && <p className="errors">{errors.name}</p>}
                     <label>Email: 
-                    <input type="email" name="email" placeholder="email"/>
+                    <input className= "input2" type="email" name="email" placeholder="Email"/>
                     </label>
                     {touched.email && errors.email && <p classsName="errors">{errors.email}</p>}
                     <label>Password: 
-                    <input type="password" name="password" placeholder="password"/>
+                    <input className= "input3" type="password" name="password" placeholder="Password"/>
                     </label>
                     {touched.password && errors.password && <p className="errors">{errors.password}</p>}
                     <button type="submit">Submit</button>
@@ -48,7 +49,7 @@ const SignUp = ({props, values, errors, touched, status}) => {
 const FormikSignUp = withFormik({
     mapsPropsToValue({name, email, password}) {
         return {
-            name: name || "",
+            username: name || "",
             email: email || "",
             password: password || ""
         }
@@ -60,7 +61,6 @@ const FormikSignUp = withFormik({
         password: Yup.string().min(8).max(16).required()
     }),
 
-
     handleSubmit(values, {setStatus}) {
         axios.post("https://reqres.in/api/users/", values)
         .then(response => {
@@ -70,4 +70,5 @@ const FormikSignUp = withFormik({
         .catch(error => console.log(error.responese));
     }
 })(SignUp);
+
 export default FormikSignUp;

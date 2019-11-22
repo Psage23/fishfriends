@@ -1,7 +1,7 @@
 import React from 'raact'
 import AddLogForm from './Logform'
 
-const UserCard = () {
+const UserCard = ()=> {
 
     return (
         <div>
