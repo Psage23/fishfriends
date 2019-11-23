@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './Home';
+// import Home from './Home';
 
 const AddLogForm = () => {
         
@@ -26,7 +26,7 @@ return (
                 <input text='text' name='fishCount' placeholder='20'/>	
                 <button>Submit</button>	                
             </form>  
-            <Home/>
+            {/* <Home/> */}
         </div>	       
     )
 }

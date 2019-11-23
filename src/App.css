@@ -172,7 +172,7 @@ footer span {
   padding-top: 2%;
 }
 
-.App video {
-  width: 100%;
+#background-video{
   height: auto;
-}
+  width: 100%;
+  }
